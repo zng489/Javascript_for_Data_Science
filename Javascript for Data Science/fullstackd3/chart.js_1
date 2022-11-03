@@ -1,0 +1,17 @@
+//import * as d3 from "d3";
+
+async function drawLineChart() {
+    const data = await d3.json("./my_weather_data.json")
+    //console.log(data);
+    //console.table(data[0]);
+
+    const yAcessor = d => d["temperatureMax"]
+    console.log(yAcessor(data[0]))
+
+    const ParseDate = d3.timeParse("%Y-%m-%d")
+
+    const xAcessor = d => ParseDate(d["date"])
+    //const xAcessor = d => d["date"]
+    console.log(xAcessor(data[0]))
+}
+drawLineChart();
